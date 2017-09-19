@@ -1,0 +1,35 @@
+{
+    "name": "temporarycrash/area",
+    "description": "行政区划代码",
+    "keywords": ["temporarycrash", "area"],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/temporarycrash/area/issues",
+        "source": "https://github.com/temporarycrash/area"
+    },
+    "authors": [
+        {
+            "name": "temporarycrash",
+            "email": "temporarycrash@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "laravel/framework": "5.5.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "TemporaryCrash\\Area\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "TemporaryCrash\\Area\\AreaServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
