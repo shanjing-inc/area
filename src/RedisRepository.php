@@ -1,5 +1,5 @@
 <?php
-namespace TemporaryCrash\Area;
+namespace Temporaries\Area;
 
 class RedisRepository extends AbstractRepository
 {

@@ -1,15 +1,15 @@
 {
-    "name": "temporarycrash/area",
+    "name": "temporaries/area",
     "description": "行政区划代码",
-    "keywords": ["temporarycrash", "area"],
+    "keywords": ["temporaries", "area"],
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/temporarycrash/area/issues",
-        "source": "https://github.com/temporarycrash/area"
+        "issues": "https://github.com/temporaries/area/issues",
+        "source": "https://github.com/temporaries/area"
     },
     "authors": [
         {
-            "name": "temporarycrash",
+            "name": "temporaries",
             "email": "temporarycrash@gmail.com"
         }
     ],
@@ -19,13 +19,13 @@
     },
     "autoload": {
         "psr-4": {
-            "TemporaryCrash\\Area\\": "src/"
+            "Temporaries\\Area\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "TemporaryCrash\\Area\\AreaServiceProvider"
+                "Temporaries\\Area\\AreaServiceProvider"
             ]
         }
     },

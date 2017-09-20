@@ -1,5 +1,5 @@
 <?php
-namespace TemporaryCrash\Area\Model;
+namespace Temporaries\Area\Model;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace TemporaryCrash\Area;
+namespace Temporaries\Area;
 
-use TemporaryCrash\Area\Model\Area;
+use Temporaries\Area\Model\Area;
 
 class DatabaseRepository extends AbstractRepository
 {

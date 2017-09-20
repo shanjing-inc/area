@@ -1,6 +1,6 @@
 <?php
 
-namespace TemporaryCrash\Area\Console;
+namespace Temporaries\Area\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Database\Schema\Blueprint;

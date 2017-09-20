@@ -1,5 +1,5 @@
 <?php
-namespace TemporaryCrash\Area\Exceptions;
+namespace Temporaries\Area\Exceptions;
 
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 

@@ -1,7 +1,7 @@
 <?php
-namespace TemporaryCrash\Area;
+namespace Temporaries\Area;
 
-use TemporaryCrash\Area\Exceptions\InvalidPostcodeException;
+use Temporaries\Area\Exceptions\InvalidPostcodeException;
 
 abstract class AbstractRepository
 {
