@@ -25,6 +25,11 @@
       "Temporaries\\Area\\": "src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Temporaries\\Area\\Tests\\": "tests/"
+    }
+  },
   "extra": {
     "laravel": {
       "providers": [
