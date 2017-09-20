@@ -41,8 +41,10 @@ class GenerateCommand extends Command
 
     protected function buildTable()
     {
-        \Schema::dropIfExists('areas');
-
+        if(\Schema::hasTable('areas')){
+            throw new InvalidPostcodeException('The areas table already exists');
+        }
+//        \Schema::dropIfExists('areas');
 
         \Schema::create('areas', function (Blueprint $table) {
             $table->unsignedMediumInteger('postcode')->comment('行政区划代码');
