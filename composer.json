@@ -1,35 +1,38 @@
 {
-    "name": "temporaries/area",
-    "description": "行政区划代码",
-    "keywords": ["temporaries", "area"],
-    "license": "MIT",
-    "support": {
-        "issues": "https://github.com/temporaries/area/issues",
-        "source": "https://github.com/temporaries/area"
-    },
-    "authors": [
-        {
-            "name": "temporaries",
-            "email": "temporarycrash@gmail.com"
-        }
-    ],
-    "require": {
-        "php": ">=7.0.0",
-        "laravel/framework": "5.5.*"
-    },
-    "autoload": {
-        "psr-4": {
-            "Temporaries\\Area\\": "src/"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Temporaries\\Area\\AreaServiceProvider"
-            ]
-        }
-    },
-    "config": {
-        "sort-packages": true
+  "name": "temporaries/area",
+  "description": "行政区划代码",
+  "keywords": [
+    "temporaries",
+    "area"
+  ],
+  "license": "MIT",
+  "support": {
+    "issues": "https://github.com/temporaries/area/issues",
+    "source": "https://github.com/temporaries/area"
+  },
+  "authors": [
+    {
+      "name": "temporaries",
+      "email": "temporarycrash@gmail.com"
     }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "laravel/framework": "5.5.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Temporaries\\Area\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Temporaries\\Area\\AreaServiceProvider"
+      ]
+    }
+  },
+  "config": {
+    "sort-packages": true
+  }
 }

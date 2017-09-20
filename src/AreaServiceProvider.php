@@ -1,4 +1,5 @@
 <?php
+
 namespace Temporaries\Area;
 
 use Illuminate\Support\ServiceProvider;

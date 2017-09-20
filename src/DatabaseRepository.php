@@ -15,18 +15,28 @@ class DatabaseRepository extends AbstractRepository
     public function getProvinceName($postcode)
     {
         $provincePostcode = substr($postcode, 0, 2) . '0000';
-        return $this->getName($provincePostcode);
+        return $this->isProvince($provincePostcode) ? $this->getName($provincePostcode) : '';
     }
 
     public function getCityName($postcode)
     {
         $cityPostcode = substr($postcode, 0, 4) . '00';
-        return $this->getName($cityPostcode);
+        return $this->isCity($cityPostcode) ? $this->getName($cityPostcode) : '';
     }
 
     public function getDistrictName($postcode)
     {
-        return $this->getName($postcode);
+        return $this->isDistrict($postcode) ? $this->getName($postcode) : '';
+    }
+
+    public function getName($postcode)
+    {
+        return Area::where('postcode', $postcode)->value('entity');
+    }
+
+    public function getParentPostcode($postcode)
+    {
+        return Area::where('postcode', $postcode)->value('parent');
     }
 
     public function getParentName($postcode)
@@ -34,37 +44,30 @@ class DatabaseRepository extends AbstractRepository
         return $this->getName($this->getParentPostcode($postcode));
     }
 
-    public function getName($postcode)
-    {
-        return Area::where('postcode', $postcode)->pluck('entity');
-    }
-
-    public function getParentPostcode($postcode)
-    {
-        return Area::where('postcode',$postcode)->pluck('parent');
-    }
-
     public function getProvinces()
     {
-        return $this->getAreasFromParent(100000);
+        return $this->getAreasByParent(100000);
     }
 
     public function getCities($postcode)
     {
-        $this->isProvince($postcode);
-        return $this->getAreasFromParent($postcode);
+        $this->checkProvince($postcode);
+        return $this->getAreasByParent($postcode);
     }
 
     public function getDistricts($postcode)
     {
-        $this->isCity($postcode);
-        return $this->getAreasFromParent($postcode);
+        $this->checkCity($postcode);
+        return $this->getAreasByParent($postcode);
     }
 
-    protected function getAreasFromParent($postcode)
+    protected function getAreasByParent($postcode)
     {
-        return Area::select('postcode','entity')->where('parent', $postcode)->get();
+        return Area::select('postcode', 'entity')->where('parent', $postcode)->get()->toArray();
     }
 
-
+    public function getFormat($postcode, $separators = '')
+    {
+        return $this->getProvinceName($postcode) . $separators . $this->getCityName($postcode) . $separators . $this->getDistrictName($postcode);
+    }
 }

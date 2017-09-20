@@ -1,4 +1,5 @@
 <?php
+
 namespace Temporaries\Area\Exceptions;
 
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;

@@ -30,7 +30,7 @@ class GenerateCommand extends Command
     public function handle()
     {
 
-        $file = $this->option('file') ?: __DIR__.'/../Resources/2016_7_31.log';
+        $file = $this->option('file') ?: __DIR__ . '/../Resources/2016_7_31.log';
 
         $this->buildTable();
 
@@ -42,7 +42,7 @@ class GenerateCommand extends Command
 
     protected function buildTable()
     {
-        if(\Schema::hasTable('areas')){
+        if (\Schema::hasTable('areas')) {
             throw new InvalidPostcodeException('The areas table already exists，please delete or rename.');
         }
 //        \Schema::dropIfExists('areas');
@@ -58,16 +58,16 @@ class GenerateCommand extends Command
 
     protected function generateDataFromFile($file)
     {
-        $source = explode("\n",file_get_contents($file));
+        $source = explode("\n", file_get_contents($file));
 
-        $search = [" ","　","\t","\n","\r"];
-        $replace = ["","","","",""];
-        collect($source)->map(function ($value) use ($search,$replace) {
+        $search = [" ", "　", "\t", "\n", "\r"];
+        $replace = ["", "", "", "", ""];
+        collect($source)->map(function ($value) use ($search, $replace) {
 
-            $tmp = str_replace($search,$replace,$value);
+            $tmp = str_replace($search, $replace, $value);
 
-            $postcode = substr($tmp,0,6);
-            $entity = substr($tmp,6);
+            $postcode = substr($tmp, 0, 6);
+            $entity = substr($tmp, 6);
             \DB::table('areas')->insert([
                 'postcode' => $postcode,
                 'entity' => $entity,
@@ -79,13 +79,14 @@ class GenerateCommand extends Command
 
     }
 
-    protected function checkParent($postcode){
-        if(substr($postcode,-2,2) !== '00'){
-            return substr($postcode,0,4).'00';
+    protected function checkParent($postcode)
+    {
+        if (substr($postcode, -2, 2) !== '00') {
+            return substr($postcode, 0, 4) . '00';
         }
 
-        if(substr($postcode,-4,4) !== '0000'){
-            return substr($postcode,0,2).'0000';
+        if (substr($postcode, -4, 4) !== '0000') {
+            return substr($postcode, 0, 2) . '0000';
         }
 
         return '100000';
