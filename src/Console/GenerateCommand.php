@@ -4,7 +4,7 @@ namespace Temporaries\Area\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Database\Schema\Blueprint;
-
+use Temporaries\Area\Exceptions\InvalidPostcodeException;
 
 class GenerateCommand extends Command
 {
@@ -29,10 +29,11 @@ class GenerateCommand extends Command
      */
     public function handle()
     {
-        $file = __DIR__.'/../Resources/2016_7_31.log';
 
+        $file = $this->option('file') ?: __DIR__.'/../Resources/2016_7_31.log';
 
         $this->buildTable();
+
         $count = $this->generateDataFromFile($file);
         $this->info('There are ' . $count . ' pieces of data');
         return;
@@ -42,7 +43,7 @@ class GenerateCommand extends Command
     protected function buildTable()
     {
         if(\Schema::hasTable('areas')){
-            throw new InvalidPostcodeException('The areas table already exists');
+            throw new InvalidPostcodeException('The areas table already exists，please delete or rename.');
         }
 //        \Schema::dropIfExists('areas');
 
@@ -53,7 +54,6 @@ class GenerateCommand extends Command
             $table->unique('postcode');
             $table->index('parent');
         });
-
     }
 
     protected function generateDataFromFile($file)
