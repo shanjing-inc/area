@@ -9,12 +9,6 @@
     "issues": "https://github.com/hmilyfyj/area/issues",
     "source": "https://github.com/hmilyfyj/area"
   },
-  "authors": [
-    {
-      "name": "temporaries",
-      "email": "temporarycrash@gmail.com"
-    }
-  ],
   "require": {
     "php": ">=7.0.0"
   },
