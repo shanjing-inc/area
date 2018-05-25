@@ -1,14 +1,13 @@
 {
-  "name": "temporaries/area",
-  "description": "行政区划代码",
+  "name": "hmilyfyj/area",
+  "description": "自用",
   "keywords": [
-    "temporaries",
-    "area"
+    "hmilyfyj"
   ],
   "license": "MIT",
   "support": {
-    "issues": "https://github.com/temporaries/area/issues",
-    "source": "https://github.com/temporaries/area"
+    "issues": "https://github.com/hmilyfyj/area/issues",
+    "source": "https://github.com/hmilyfyj/area"
   },
   "authors": [
     {
@@ -17,7 +16,7 @@
     }
   ],
   "require": {
-    "php": ">=7.0.0",
+    "php": ">=7.0.0"
   },
   "autoload": {
     "psr-4": {
