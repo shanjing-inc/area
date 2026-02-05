@@ -2,10 +2,9 @@
 
 namespace Temporaries\Area;
 
-use League\OAuth2\Server\Repositories\RepositoryInterface;
 use Temporaries\Area\Exceptions\InvalidPostcodeException;
 
-abstract class AbstractRepository implements RepositoryInterface
+abstract class AbstractRepository
 {
     protected function isCountry($postcode)
     {
